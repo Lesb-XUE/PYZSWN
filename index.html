@@ -1,28 +1,289 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PYZSWN - Python 知识外脑</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python 知识外脑</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f6f8fb; color: #212121; }
+    header { background: #0b5ed7; color: #fff; padding: 32px 24px; text-align: center; }
+    header h1 { margin: 0 0 8px; font-size: 2.2rem; }
+    header p { margin: 0; opacity: .85; }
+    main { max-width: 980px; margin: 32px auto; padding: 0 24px; }
+    section { margin-bottom: 32px; padding: 24px; background: #fff; border-radius: 16px; box-shadow: 0 16px 40px rgba(16,24,40,.08); }
+    h2 { margin-top: 0; color: #0d3e81; }
+    pre { background: #121212; color: #f8f8f2; padding: 18px; border-radius: 12px; overflow-x: auto; font-size: .95rem; }
+    code { font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace; }
+    .note { margin-top: 12px; padding: 14px 18px; border-left: 4px solid #0b5ed7; background: #eef4ff; }
+    footer { text-align: center; padding: 20px 24px; color: #555; }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>PYZSWN</h1>
-    <p>欢迎来到 Python 知识外脑项目。</p>
-    <p>这是一个简单的静态网页示例，您可以在此展示 Python 学习资料、代码示例和知识点。</p>
+  <header>
+    <h1>Python 知识外脑</h1>
+    <p>Python 核心知识点与代码示例的网页展示</p>
+  </header>
+  <main>
     <section>
-      <h2>项目说明</h2>
-      <ul>
-        <li>仓库名称：<strong>PYZSWN</strong></li>
-        <li>当前分支：<strong>main</strong></li>
-      </ul>
+      <h2>基础语法</h2>
+      <p>这是 Python 的第一个程序，以及变量和数据类型示例。</p>
+      <pre><code># 第一个Python程序
+print("Hello, World!")
+print("你好，Python！")
+
+# 变量与数据类型
+name = "小明"
+age = 25
+height = 1.75
+is_student = True</code></pre>
     </section>
     <section>
-      <h2>发布说明</h2>
-      <p>此页面通过 GitHub Pages 发布。</p>
-      <p>每次将代码推送到 <code>main</code> 分支时，GitHub Actions 会自动将 <code>docs/</code> 目录部署到 Pages。</p>
+      <h2>数据类型</h2>
+      <p>包含列表、元组、字典和集合的基本用法。</p>
+      <pre><code># 列表(List)
+fruits = ["apple", "banana", "cherry"]
+print(fruits[0])
+fruits.append("orange")
+
+# 元组(Tuple) - 不可变列表
+coordinates = (10, 20)
+
+# 字典(Dictionary)
+person = {
+    "name": "小明",
+    "age": 25,
+    "city": "北京"
+}
+print(person["name"])
+
+# 集合(Set) - 无序不重复
+colors = {"red", "green", "blue"}</code></pre>
     </section>
-  </div>
+    <section>
+      <h2>控制流程</h2>
+      <p>条件语句、for 和 while 循环示例。</p>
+      <pre><code># 条件语句
+score = 85
+if score >= 90:
+    print("优秀")
+elif score >= 80:
+    print("良好")
+else:
+    print("继续加油")
+
+# for循环
+fruits = ["apple", "banana"]
+for fruit in fruits:
+    print(fruit)
+
+# while循环
+count = 0
+while count < 5:
+    print(count)
+    count += 1</code></pre>
+    </section>
+    <section>
+      <h2>函数</h2>
+      <p>定义函数、lambda 表达式、默认参数与函数调用。</p>
+      <pre><code>def greet(name: str) -> str:
+    """向用户打招呼"""
+    return f"Hello, {name}"
+
+message = greet("小明")
+print(message)
+
+# Lambda函数
+add = lambda x, y: x + y
+print(add(3, 5))
+
+numbers = [1, 2, 3]
+squared = list(map(lambda x: x**2, numbers))
+
+# 默认参数
+def power(base, exponent=2):
+    return base ** exponent</code></pre>
+    </section>
+    <section>
+      <h2>面向对象</h2>
+      <p>类、对象、继承与方法示例。</p>
+      <pre><code>class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def introduce(self):
+        print(f"我是{self.name}，今年{self.age}岁")
+
+p = Person("小明", 25)
+p.introduce()
+
+# 继承
+class Student(Person):
+    def __init__(self, name, age, school):
+        super().__init__(name, age)
+        self.school = school
+
+    def study(self):
+        print(f"{self.name}在{self.school}学习")</code></pre>
+    </section>
+    <section>
+      <h2>高级特性</h2>
+      <p>推导式、生成器、装饰器和上下文管理器。</p>
+      <pre><code># 列表推导式
+squares = [i**2 for i in range(10)]
+even_squares = [i**2 for i in range(10) if i % 2 == 0]
+
+# 字典推导式
+word_lengths = {word: len(word) for word in ["apple", "banana"]}
+
+# 生成器
+def fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a
+        a, b = b, a + b
+
+for num in fibonacci(10):
+    print(num)
+
+# 装饰器
+def timer(func):
+    def wrapper(*args, **kwargs):
+        import time
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"{func.__name__}耗时: {end-start:.2f}秒")
+        return result
+    return wrapper
+
+@timer
+def slow_func():
+    import time
+    time.sleep(1)
+
+# 上下文管理器
+class FileManager:
+    def __init__(self, filename):
+        self.filename = filename
+
+    def __enter__(self):
+        self.file = open(self.filename, 'w')
+        return self.file
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.file.close()</code></pre>
+    </section>
+    <section>
+      <h2>异常处理</h2>
+      <p>捕获异常与自定义异常类型。</p>
+      <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("不能除以零")
+except Exception as e:
+    print(f"发生错误: {e}")
+finally:
+    print("执行完成")
+
+# 自定义异常
+class CustomError(Exception):
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)</code></pre>
+    </section>
+    <section>
+      <h2>文件与目录操作</h2>
+      <p>读写文件与文件夹操作。</p>
+      <pre><code>with open("test.txt", "w", encoding="utf-8") as f:
+    f.write("Hello, Python!")
+
+with open("test.txt", "r", encoding="utf-8") as f:
+    content = f.read()
+    print(content)
+
+import os
+os.makedirs("new_folder", exist_ok=True)
+os.listdir(".")</code></pre>
+    </section>
+    <section>
+      <h2>常用库</h2>
+      <p>NumPy、Pandas、Matplotlib 的基础用法示例。</p>
+      <pre><code>import numpy as np
+arr = np.array([1, 2, 3, 4])
+result = arr * 2
+mean = np.mean(arr)
+
+import pandas as pd
+data = {
+    "Name": ["小明", "小红"],
+    "Age": [25, 23]
+}
+df = pd.DataFrame(data)
+print(df.head())
+
+import matplotlib.pyplot as plt
+x = [1, 2, 3, 4]
+y = [10, 20, 15, 25]
+plt.plot(x, y)
+plt.title("示例图表")
+plt.show()</code></pre>
+    </section>
+    <section>
+      <h2>函数式编程</h2>
+      <p>map、filter、reduce 的基本使用方式。</p>
+      <pre><code>numbers = [1, 2, 3, 4]
+
+# filter
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+
+# reduce
+from functools import reduce
+product = reduce(lambda x, y: x * y, numbers)</code></pre>
+    </section>
+    <section>
+      <h2>实用技巧与魔术方法</h2>
+      <p>解包、枚举、zip 与自定义类运算符。</p>
+      <pre><code># 解包
+a, b, c = [1, 2, 3]
+first, *rest = [1, 2, 3, 4, 5]
+
+# 枚举
+for index, value in enumerate(["a", "b", "c"]):
+    print(f"{index}: {value}")
+
+# zip
+names = ["Alice", "Bob"]
+ages = [25, 30]
+for name, age in zip(names, ages):
+    print(f"{name}: {age}")
+
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __str__(self):
+        return f"Vector({self.x}, {self.y})"
+
+    def __len__(self):
+        return 2
+
+# 闭包
+def outer(x):
+    def inner(y):
+        return x + y
+    return inner
+
+add_5 = outer(5)
+print(add_5(10))</code></pre>
+    </section>
+  </main>
+  <footer>
+    <p>已将 `Python知识外脑_源代码.py` 转换为网页格式。</p>
+  </footer>
 </body>
 </html>
