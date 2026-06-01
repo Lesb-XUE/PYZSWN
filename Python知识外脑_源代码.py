@@ -290,3 +290,4 @@ if __name__ == "__main__":
 print("=" * 50)
 print("Python 知识外脑 - 学习指南")
 print("=" * 50)
+print("欢迎使用本示例程序进行 Python 学习。")
